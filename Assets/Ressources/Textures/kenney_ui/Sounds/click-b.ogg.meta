@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 3548b5d75d7ee46a79f10f6596751572
-=======
-guid: 9637bc6315bb243718f462be48bca9a0
->>>>>>> 7ffe5a7 (add SimpleSky package)
 AudioImporter:
   externalObjects: {}
   serializedVersion: 7
