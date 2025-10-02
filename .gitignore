@@ -31,6 +31,9 @@
 # Jetbrains Rider personal-layer settings
 *.DotSettings.user
 
+# Apple shit
+.DS_Store
+
 # Visual Studio cache directory
 .vs/
 .idea/
