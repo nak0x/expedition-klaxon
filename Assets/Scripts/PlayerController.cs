@@ -4,31 +4,50 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private BusLaneMotor motor;
+
+    private void Awake()
+    {
+        motor = GetComponent<BusLaneMotor>();
+        if (motor == null)
+            Debug.LogError("[PlayerController] BusLaneMotor manquant sur le même GameObject.");
+    }
+
     private void OnEnable()
     {
-        InputController.Instance.OnUserAction += HandleUserAction;
+        if (InputController.Instance != null)
+            InputController.Instance.OnUserAction += HandleUserAction;
     }
 
     private void OnDisable()
     {
-        InputController.Instance.OnUserAction -= HandleUserAction;
+        if (InputController.Instance != null)
+            InputController.Instance.OnUserAction -= HandleUserAction;
     }
 
     private void HandleUserAction(UserActions action)
     {
+        if (motor == null) return;
+
         switch (action)
         {
             case UserActions.MoveLeft:
-                Debug.Log("Move Left triggered!");
+                Debug.Log("LEFT");
+                motor.MoveLeft();
                 break;
-            case UserActions.MoveRight:
-                Debug.Log("Move Right triggered!");
-                break;
+
             case UserActions.MoveCenter:
-                Debug.Log("Move Center triggered!");
+                Debug.Log("CENTER");
+                motor.MoveCenter();
                 break;
+
+            case UserActions.MoveRight:
+                Debug.Log("RIGHT");
+                motor.MoveRight();
+                break;
+
             case UserActions.TogglePause:
-                Debug.Log("Pause toggled!");
+                // à compléter
                 break;
         }
     }
