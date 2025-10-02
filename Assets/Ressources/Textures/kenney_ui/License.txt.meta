@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: e17ce5d3ae595435097cb93b7971d8c6
+=======
+guid: 401fa08b753a64e89aae7ad23fdc1f55
+>>>>>>> 7ffe5a7 (add SimpleSky package)
 TextScriptImporter:
   externalObjects: {}
   userData: 

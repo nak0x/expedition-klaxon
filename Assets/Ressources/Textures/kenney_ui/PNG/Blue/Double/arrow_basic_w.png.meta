@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 388613f8bed7c4598b7f26ad28f431b9
+=======
+guid: fe2b7bf392e054c81a2a0e9b5838fbe9
+>>>>>>> 7ffe5a7 (add SimpleSky package)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

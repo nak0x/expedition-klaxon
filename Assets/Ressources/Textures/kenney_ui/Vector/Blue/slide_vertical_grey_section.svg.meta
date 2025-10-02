@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 52659a818354e4bde9333178aa4b5a6e
+=======
+guid: 0a32f3d8267c740e8a816bf462052392
+>>>>>>> 7ffe5a7 (add SimpleSky package)
 DefaultImporter:
   externalObjects: {}
   userData: 
