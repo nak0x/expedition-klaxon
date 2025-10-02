@@ -210,6 +210,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1474679841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1474679843}
+  - component: {fileID: 1474679842}
+  m_Layer: 0
+  m_Name: === DIFFICULTY CONTROLLER ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1474679842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474679841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5841c2d4b484dd2827c5d82e9ae2b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyList: {fileID: 11400000, guid: 59dc0964ca1fe449c8f97c5b67f07386, type: 2}
+  currentDifficulty: {fileID: 0}
+--- !u!4 &1474679843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474679841}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1545367438
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +268,7 @@ GameObject:
   - component: {fileID: 1545367439}
   - component: {fileID: 1545367441}
   m_Layer: 0
-  m_Name: GameMusicEmitter
+  m_Name: === TRACK CONTROLLER ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444e5de76bae14d098ce6b7a8a37de03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: f4b89db48a2de4e3696a7d008e753ef4, type: 3}
+  trackList: {fileID: 11400000, guid: 981dcf7ec47b244a28ab3dc05c2c6705, type: 2}
 --- !u!1 &2143211282
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,3 +450,4 @@ SceneRoots:
   - {fileID: 1086972807}
   - {fileID: 2143211283}
   - {fileID: 1545367440}
+  - {fileID: 1474679843}
