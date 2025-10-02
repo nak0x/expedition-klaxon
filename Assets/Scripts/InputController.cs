@@ -16,16 +16,20 @@ public class InputController : SingletonMonoBehaviour<InputController>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        // Gauche
+        if (Input.GetKeyDown(KeyCode.F))
             OnUserAction?.Invoke(UserActions.MoveLeft);
 
-        if (Input.GetKeyDown(KeyCode.G))
-            OnUserAction?.Invoke(UserActions.MoveRight);
-
+        // Centre
         if (Input.GetKeyDown(KeyCode.Space))
             OnUserAction?.Invoke(UserActions.MoveCenter);
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        // Droite
+        if (Input.GetKeyDown(KeyCode.J))
+            OnUserAction?.Invoke(UserActions.MoveRight);
+
+        // Pause
+        if (Input.GetKeyDown(KeyCode.Escape))
             OnUserAction?.Invoke(UserActions.TogglePause);
     }
 }
