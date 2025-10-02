@@ -22,27 +22,21 @@ public class GameController : SingletonMonoBehaviour<GameController>
     void Start()
     {
         OnInitEvent?.Invoke();
+        InputController.Instance.OnUserAction += HandleUserAction;
     }
 
-    // Update is called once per frame
-    void Update()
+    void HandleUserAction(UserActions action)
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !_gamePaused)
-            this.PauseGame();
-
-        if (Input.GetKeyDown(KeyCode.Escape) && _gamePaused)
-            this.ResumeGame();
+        if (action == UserActions.TogglePause)
+            this.TogglePause();
     }
 
-    void PauseGame()
+    void TogglePause()
     {
-        _gamePaused = true;
-        OnPauseEvent?.Invoke();
-    }
-
-    void ResumeGame()
-    {
-        _gamePaused = false;
-        OnResumeEvent?.Invoke();
+        if  (_gamePaused)
+            OnResumeEvent?.Invoke();
+        else
+            OnPauseEvent?.Invoke();
+        _gamePaused = !_gamePaused;
     }
 }
