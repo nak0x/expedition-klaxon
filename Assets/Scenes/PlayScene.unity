@@ -1085,6 +1085,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CityController
       objectReference: {fileID: 0}
+    - target: {fileID: 8368024294379018398, guid: 2a380522da05c448dbbdf02ce10eb2e7,
+        type: 3}
+      propertyPath: track.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368024294379018398, guid: 2a380522da05c448dbbdf02ce10eb2e7,
+        type: 3}
+      propertyPath: track.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 51feddca68c5148d195076150a820af3,
+        type: 2}
     - target: {fileID: 8659527246520888671, guid: 2a380522da05c448dbbdf02ce10eb2e7,
         type: 3}
       propertyPath: m_LocalPosition.x

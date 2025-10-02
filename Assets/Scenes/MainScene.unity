@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1545367439}
   - component: {fileID: 1545367441}
   m_Layer: 0
-  m_Name: GameMusicEmitter
+  m_Name: === TRACK CONTROLLER ===
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444e5de76bae14d098ce6b7a8a37de03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: f4b89db48a2de4e3696a7d008e753ef4, type: 3}
+  trackList: {fileID: 11400000, guid: 981dcf7ec47b244a28ab3dc05c2c6705, type: 2}
 --- !u!1 &2143211282
 GameObject:
   m_ObjectHideFlags: 0
