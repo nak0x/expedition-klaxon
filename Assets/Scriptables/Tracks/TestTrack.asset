@@ -17,3 +17,4 @@ MonoBehaviour:
   description: Debug test track
   trackAudio: {fileID: 8300000, guid: f4b89db48a2de4e3696a7d008e753ef4, type: 3}
   bpm: 123
+  isDefault: 1

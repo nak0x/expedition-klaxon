@@ -6,7 +6,9 @@ namespace Scriptables
     public class Difficulty : ScriptableObject
     {
         public string difficultyName;
+        public string slug;
         public ParticleSystem.MinMaxCurve bpmToSpeed;
         public float childSpawnFactor;
+        public bool isDefault;
     }
 }

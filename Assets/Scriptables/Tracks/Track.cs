@@ -12,7 +12,7 @@ namespace Scriptables.Tracks
         public string description;
         public AudioClip trackAudio;
         public float bpm;
-        public bool isDefault = false;
+        public bool isDefault;
 
     }
 }

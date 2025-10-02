@@ -7,5 +7,25 @@ namespace Scriptables
     public class Difficulties : ScriptableObject
     {
         public List<Difficulty> difficulties;
+
+        public static Difficulty FindDifficultyBySlug(List<Difficulty> difficulties, string slug)
+        {
+            foreach (var difficulty in difficulties)
+            {
+                if (difficulty.slug == slug)
+                    return difficulty;
+            }
+            return null;
+        }
+
+        public static Difficulty GetDefaultDifficulty(List<Difficulty> difficulties)
+        {
+            foreach (var difficulty in difficulties)
+            {
+                if (difficulty.isDefault)
+                    return difficulty;
+            }
+            return null;
+        }
     }
 }

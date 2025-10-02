@@ -22,6 +22,9 @@ public class GameController : SingletonMonoBehaviour<GameController>
     
     public delegate void TrackEvent(string trackSlug);
     public TrackEvent SetTrackEvent;
+    
+    public delegate void DifficultyEvent(string difficultySlug);
+    public DifficultyEvent SetDifficultyEvent;
 
     void Awake()
     {
@@ -34,6 +37,10 @@ public class GameController : SingletonMonoBehaviour<GameController>
         Track defaultTrack = TrackList.GetDefaultTrack(TrackController.Instance.trackList.tracks);
         if (defaultTrack != null)
             SetTrackEvent?.Invoke(defaultTrack.slug);
+        
+        Difficulty defaultDifficulty = Difficulties.GetDefaultDifficulty(DifficultyController.Instance.difficultyList.difficulties);
+        if (defaultDifficulty != null)
+            SetDifficultyEvent?.Invoke(defaultDifficulty.slug);
     }
 
     void HandleUserAction(UserActions action)

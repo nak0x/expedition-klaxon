@@ -11,7 +11,6 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
     public TrackList trackList;
     
     private AudioSource _audioSource;
-    private string _currentTrackSlug;
     
     public delegate void OnTrackEvent(Track track);
     public OnTrackEvent OnTrackSetEvent;
@@ -35,14 +34,13 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
     {
         Debug.Log("SetCurrentTrack " +  trackSlug);
         Track track = TrackList.FindTrackBySlug(trackList.tracks, trackSlug);
-        if (track != null)
+        if (track == null)
         {
-            _currentTrackSlug = trackSlug;
-            SetTrack(track);
-            OnTrackSetEvent?.Invoke(track);
+            Debug.Log("Cannot set track " + trackSlug);
             return;
         }
-        Debug.Log("Cannot set track " + trackSlug);
+        SetTrack(track);
+        OnTrackSetEvent?.Invoke(track);
     }
 
     private void StartTrack()
@@ -62,7 +60,6 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
 
     private void SetTrack(Track track)
     {
-        _currentTrackSlug = track.slug;
         _audioSource.clip = track.trackAudio;
     }
 }

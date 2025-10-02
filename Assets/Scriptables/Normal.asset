@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9301a493ab14ed389240c53134c79c6, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: 
-  difficultyName: 
+  difficultyName: Normal
+  slug: normal
   bpmToSpeed:
     m_Mode: 1
     m_CurveMultiplier: 0
@@ -49,3 +50,4 @@ MonoBehaviour:
     m_ConstantMin: 0
     m_ConstantMax: 0
   childSpawnFactor: 1
+  isDefault: 1
