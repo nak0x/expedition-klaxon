@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ground
-  m_Shader: {fileID: -6465566751694194690, guid: 51038d9af2d064b5c890394139b33234, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: d81e5cf27ed7742108b1097a4a159699,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -81,6 +82,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_8557691a7bea4e039033c283b82d28c5_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 77e02ff89752f48a280a43985a81d850, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -122,7 +127,7 @@ Material:
     - _Smoothness: 0.04
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpeedAnimation: -0.08
+    - _SpeedAnimation: -0.3
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
@@ -137,4 +142,3 @@ Material:
     - _Frequency: {r: 4, g: 40, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1
