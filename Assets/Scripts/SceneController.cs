@@ -7,12 +7,18 @@ public class SceneController: SingletonMonoBehaviour<SceneController>
 
     void Awake()
     {
-        GameController.Instance.OnStartEvent += LoadWorld;
+        GameController.Instance.OnInitEvent += LoadStartScene;
+        GameController.Instance.OnStartEvent += LoadPlayScene;
+    }
+    
+    void LoadStartScene()
+    {
+        SceneManager.LoadScene("Scenes/StartScene", LoadSceneMode.Additive);
     }
 
-    void LoadWorld()
+    void LoadPlayScene()
     {
-        Debug.Log("Loading world");
+        SceneManager.UnloadSceneAsync("Scenes/StartScene");
         SceneManager.LoadScene("Scenes/PlayScene", LoadSceneMode.Additive);
     }
 }

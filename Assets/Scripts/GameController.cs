@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Utils;
 
@@ -16,11 +17,11 @@ public class GameController : SingletonMonoBehaviour<GameController>
 
     public delegate void EndStartEvent();
     public EndStartEvent OnStartEvent;
-    
-    // Start is called before the first frame update
+    public EndStartEvent OnInitEvent;
+
     void Start()
     {
-        OnStartEvent?.Invoke();    
+        OnInitEvent?.Invoke();
     }
 
     // Update is called once per frame

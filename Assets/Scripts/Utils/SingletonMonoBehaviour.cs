@@ -18,10 +18,5 @@ namespace Utils
                 return _instance;
             }
         }
-
-        void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
     }
 }
