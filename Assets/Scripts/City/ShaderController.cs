@@ -22,8 +22,6 @@ namespace City
 
         private void UpdateSpeed(float speed)
         {
-            Debug.Log("Getted speed : " + speed);
-            Debug.Log("Setting shader speed to : " + speed * baseSpeed);
             this.mat.SetFloat("_SpeedAnimation", speed * baseSpeed);
         }
 

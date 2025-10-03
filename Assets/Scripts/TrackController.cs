@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Scriptables.Tracks;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -15,6 +16,7 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
     
     public delegate void OnTrackEvent(Track track);
     public OnTrackEvent OnTrackSetEvent;
+    public OnTrackEvent OnTrackEnd;
 
     void Awake()
     {
@@ -33,11 +35,9 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
 
     private void SetCurrentTrack(string trackSlug)
     {
-        Debug.Log("SetCurrentTrack " +  trackSlug);
         Track track = TrackList.FindTrackBySlug(trackList.tracks, trackSlug);
         if (track == null)
         {
-            Debug.Log("Cannot set track " + trackSlug);
             return;
         }
         SetTrack(track);
@@ -46,7 +46,20 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
 
     private void StartTrack()
     {
+        float length = _audioSource.clip.length;
         _audioSource.Play();
+        StartCoroutine(StartMethod(length));
+    }
+
+    private IEnumerator StartMethod(float length)
+    {
+        yield return new WaitForSeconds(length);
+        TrackEnd();
+    }
+
+    private void TrackEnd()
+    {
+        OnTrackEnd?.Invoke(currentTrack);
     }
 
     private void PauseTrack()

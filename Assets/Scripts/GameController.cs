@@ -2,6 +2,7 @@ using System;
 using Scriptables;
 using Scriptables.Tracks;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utils;
 
 
@@ -21,6 +22,7 @@ public class GameController : SingletonMonoBehaviour<GameController>
 
     public delegate void EndStartEvent();
     public EndStartEvent OnStartEvent;
+    public EndStartEvent OnEndEvent;
     public EndStartEvent OnInitEvent;
 
     public delegate void TrackEvent(string trackSlug);
@@ -43,10 +45,17 @@ public class GameController : SingletonMonoBehaviour<GameController>
         Track defaultTrack = TrackList.GetDefaultTrack(TrackController.Instance.trackList.tracks);
         if (defaultTrack != null)
             SetTrackEvent?.Invoke(defaultTrack.slug);
+        TrackController.Instance.OnTrackEnd += HandleTrackEnd;
 
         Difficulty defaultDifficulty = Difficulties.GetDefaultDifficulty(DifficultyController.Instance.difficultyList.difficulties);
         if (defaultDifficulty != null)
             SetDifficultyEvent?.Invoke(defaultDifficulty.slug);
+    }
+
+    void HandleTrackEnd(Track track)
+    {
+        TogglePause();
+        OnEndEvent?.Invoke();
     }
 
     void HandleUserAction(UserActions action)
@@ -55,7 +64,7 @@ public class GameController : SingletonMonoBehaviour<GameController>
             this.TogglePause();
     }
 
-    void TogglePause()
+    public void TogglePause()
     {
         if (_gamePaused)
             OnResumeEvent?.Invoke();
@@ -63,11 +72,15 @@ public class GameController : SingletonMonoBehaviour<GameController>
             OnPauseEvent?.Invoke();
         _gamePaused = !_gamePaused;
     }
+
+    public void LoadMainMenu()
+    {
+        SceneController.Instance.LoadStartScene();
+    }
     
     public void AddScore(int amount)
     {
         _score += amount;
         SetScoreEvent?.Invoke(_score);
-        Debug.Log($"[GameController] Score: {_score}");
     }
 }

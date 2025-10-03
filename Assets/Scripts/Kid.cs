@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public enum Lane { Left, Center, Right }
@@ -12,20 +13,28 @@ public class Kid : MonoBehaviour
     public Lane lane;
     public float speed = 8f;
     public Vector3 moveDirection = Vector3.back; // change selon ton axe
-
+    public float kidSpeedCoef = 9f;
+    
     public bool IsInDetectionZone { get; private set; }
 
     private void Awake()
     {
-        // Rigidbody requis pour les triggers ; on le met en "kinematic"
-        var rb = GetComponent<Rigidbody>();
+        Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.useGravity = false;
+
+        this.speed = kidSpeedCoef * CityController.Instance.CurrentSpeed();
+        CityController.Instance.OnSpeedChange += UpdateSpeed;
+    }
+
+    private void UpdateSpeed(float newSpeed)
+    {
+        this.speed = newSpeed * kidSpeedCoef;
     }
 
     private void Update()
     {
-        transform.position += moveDirection.normalized * speed * Time.deltaTime;
+        transform.position += moveDirection.normalized * (speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,15 +61,6 @@ public class Kid : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
-    {
-        // Clique sur l’enfant : on log UNIQUEMENT s’il est dans la zone
-        if (IsInDetectionZone)
-        {
-            Debug.Log($"[Kid] Click OK: lane={lane}, in detection zone.");
-        }
-    }
-    
     public void EjectAndDestroy()
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -96,5 +96,4 @@ public class Kid : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
     }
-
 }

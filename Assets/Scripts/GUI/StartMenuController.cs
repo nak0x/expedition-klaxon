@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
-using Utils;
 
-public class UIController : SingletonMonoBehaviour<UIController>
+public class StartMenuController : MonoBehaviour
 {
     public void TriggerStart()
     {

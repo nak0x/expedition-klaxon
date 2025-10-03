@@ -1,23 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
-public class KidController : MonoBehaviour
+public class KidController : SingletonMonoBehaviour<KidController>
 {
-    public static KidController Instance { get; private set; }
-
     private readonly HashSet<Kid> kidsInZone = new HashSet<Kid>();
-
-    private void Awake()
-    {
-        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-        Instance = this;
-    }
 
     private void OnEnable()
     {
         if (InputController.Instance != null)
             InputController.Instance.OnUserAction += HandleUserAction;
+
     }
 
     private void OnDisable()
@@ -31,34 +25,29 @@ public class KidController : MonoBehaviour
 
     private void HandleUserAction(UserActions action)
     {
-        // Quand tu appuies sur Q/S/D : on vérifie s’il y a un kid dans la zone sur la lane visée
         switch (action)
         {
             case UserActions.MoveLeft:
-                LogIfAnyOnLane(Lane.Left);
+                DestroyKidIfOnLane(Lane.Left);
                 break;
             case UserActions.MoveCenter:
-                LogIfAnyOnLane(Lane.Center);
+                DestroyKidIfOnLane(Lane.Center);
                 break;
             case UserActions.MoveRight:
-                LogIfAnyOnLane(Lane.Right);
+                DestroyKidIfOnLane(Lane.Right);
                 break;
         }
     }
 
-    private void LogIfAnyOnLane(Lane lane)
+    private void DestroyKidIfOnLane(Lane lane)
     {
-        foreach (var kid in kidsInZone)
+        foreach (Kid kid in kidsInZone)
         {
-            if (kid != null && kid.lane == lane)
-            {
-                Debug.Log($"[KidController] Touche lane={lane} : kid présent dans la DetectionLine ✔");
-                kid.EjectAndDestroy();
-                GameController.Instance.AddScore(1);
+            if (kid.lane != lane)
                 return;
-            }
+            Destroy(kid.gameObject);
+            GameController.Instance.AddScore(1); 
         }
-        Debug.Log($"[KidController] Touche lane={lane} : aucun kid dans la DetectionLine.");
     }
     
     private void KillKid(Kid kid)

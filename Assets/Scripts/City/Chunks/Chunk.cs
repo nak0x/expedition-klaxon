@@ -22,8 +22,6 @@ namespace City.Chunks
 
         void UpdateSpeedEvent(float newSpeed)
         {
-            Debug.Log("Chunk getted speed : " + newSpeed);
-            Debug.Log("Setting chunk speed to : " + newSpeed * baseSpeed);
             this.speed = newSpeed * baseSpeed;
         }
         
