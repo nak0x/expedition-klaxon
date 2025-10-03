@@ -26,8 +26,8 @@ public class KidController : MonoBehaviour
             InputController.Instance.OnUserAction -= HandleUserAction;
     }
 
-    public void NotifyEnterZone(Kid kid)   => kidsInZone.Add(kid);
-    public void NotifyExitZone(Kid kid)    => kidsInZone.Remove(kid);
+    public void NotifyEnterZone(Kid kid) => kidsInZone.Add(kid);
+    public void NotifyExitZone(Kid kid) => kidsInZone.Remove(kid);
 
     private void HandleUserAction(UserActions action)
     {
@@ -53,11 +53,19 @@ public class KidController : MonoBehaviour
             if (kid != null && kid.lane == lane)
             {
                 Debug.Log($"[KidController] Touche lane={lane} : kid présent dans la DetectionLine ✔");
-                Destroy(kid.gameObject);
-                GameController.Instance.AddScore(1); 
+                kid.EjectAndDestroy();
+                GameController.Instance.AddScore(1);
                 return;
             }
         }
         Debug.Log($"[KidController] Touche lane={lane} : aucun kid dans la DetectionLine.");
+    }
+    
+    private void KillKid(Kid kid)
+    {
+        if (kid != null)
+        {
+            Destroy(kid.gameObject);
+        }
     }
 }

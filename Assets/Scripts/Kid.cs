@@ -37,7 +37,8 @@ public class Kid : MonoBehaviour
             KidController.Instance?.NotifyEnterZone(this);
         }
 
-        if (other.CompareTag("KidDestroyer")) {
+        if (other.CompareTag("KidDestroyer"))
+        {
             Destroy(gameObject);
         }
     }
@@ -59,4 +60,41 @@ public class Kid : MonoBehaviour
             Debug.Log($"[Kid] Click OK: lane={lane}, in detection zone.");
         }
     }
+    
+    public void EjectAndDestroy()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb == null) rb = gameObject.AddComponent<Rigidbody>();
+
+        rb.isKinematic = false;
+
+        Vector3 forward = Vector3.forward;
+        Vector3 lateral = Vector3.zero;
+        if (lane == Lane.Left) lateral = Vector3.left;
+        else if (lane == Lane.Right) lateral = Vector3.right;
+        else lateral = Random.value > 0.5f ? Vector3.left : Vector3.right;
+
+        Vector3 ejectDir = forward * 1.5f + lateral * 1.2f;
+        ejectDir.Normalize();
+
+        float punchForce = 15f;
+        float upForce = 8f;
+
+        Vector3 force = ejectDir * punchForce + Vector3.up * upForce;
+        rb.AddForce(force, ForceMode.Impulse);
+
+        // Ajoute une rotation pour effet non-linéaire
+        rb.AddTorque(new Vector3(Random.Range(-300f, 300f), Random.Range(-100f, 100f), Random.Range(-80f, 80f)));
+
+        speed = 0f;
+
+        StartCoroutine(DestroyLater());
+    }
+
+    private System.Collections.IEnumerator DestroyLater()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
+
 }
