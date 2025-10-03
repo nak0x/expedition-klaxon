@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: character-female-b Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7203598835762888673, guid: 6d049acae17ce48e282891b40fcfc0dd,
+        type: 3}
+      propertyPath: kidSpeedCoef
+      value: 3.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

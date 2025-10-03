@@ -8,6 +8,7 @@ public class SceneController: SingletonMonoBehaviour<SceneController>
 {
     private bool _isTrackSet = false;
     private bool _isDifficultySet = false;
+    private bool _isPlaySceneLoaded = false;
 
     void Awake()
     {
@@ -33,8 +34,10 @@ public class SceneController: SingletonMonoBehaviour<SceneController>
         return this._isTrackSet && this._isDifficultySet;;
     }
     
-    void LoadStartScene()
+    public void LoadStartScene()
     {
+        if (this._isPlaySceneLoaded)
+            SceneManager.UnloadSceneAsync("Scenes/PlayScene");
         SceneManager.LoadScene("Scenes/StartScene", LoadSceneMode.Additive);
     }
 
@@ -44,7 +47,8 @@ public class SceneController: SingletonMonoBehaviour<SceneController>
         {
             SceneManager.UnloadSceneAsync("Scenes/StartScene");
             SceneManager.LoadScene("Scenes/PlayScene", LoadSceneMode.Additive);
+            this._isPlaySceneLoaded = true;
         } else
-            Debug.Log("SceneController: Cannot load play scene");
+            Debug.LogError("SceneController: Cannot load play scene");
     }
 }

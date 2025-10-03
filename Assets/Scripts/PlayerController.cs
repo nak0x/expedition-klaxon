@@ -32,22 +32,15 @@ public class PlayerController : MonoBehaviour
         switch (action)
         {
             case UserActions.MoveLeft:
-                Debug.Log("LEFT");
                 motor.MoveLeft();
                 break;
 
             case UserActions.MoveCenter:
-                Debug.Log("CENTER");
                 motor.MoveCenter();
                 break;
 
             case UserActions.MoveRight:
-                Debug.Log("RIGHT");
                 motor.MoveRight();
-                break;
-
-            case UserActions.TogglePause:
-                // à compléter
                 break;
         }
     }

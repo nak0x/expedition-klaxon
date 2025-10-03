@@ -12,18 +12,28 @@ public class KidsSpawner : MonoBehaviour
     public float spawnIntervalMin = 0.8f;
     public float spawnIntervalMax = 1.6f;
     public float spawnZOffset = 0f;     // ajoute un offset le long de l’axe de déplacement si besoin
+    public bool spawnAllowed = true;
 
-    [Header("Kid Defaults")]
-    public float kidSpeedCoef = 9f;
-    public Vector3 kidMoveDirection = Vector3.back;
 
     private void Start()
     {
         StartCoroutine(SpawnLoop());
+        GameController.Instance.OnPauseEvent += DisallowSpawn;
+        GameController.Instance.OnResumeEvent += AllowSpawn;
+    }
+
+    private void AllowSpawn()
+    {
+        this.spawnAllowed = true;
+    }
+
+    private void DisallowSpawn()
+    {
+        this.spawnAllowed = false;
     }
     private IEnumerator SpawnLoop()
     {
-        while (true)
+        while (spawnAllowed)
         {
             yield return new WaitForSeconds(Random.Range(spawnIntervalMin, spawnIntervalMax));
             SpawnOne();
@@ -54,12 +64,9 @@ public class KidsSpawner : MonoBehaviour
                 break;
         }
 
-        // Optionnel: décaler sur l’axe avant/arrière
-        pos += kidMoveDirection.normalized * spawnZOffset;
+        pos += Vector3.back.normalized * spawnZOffset;
 
         Kid kid = Instantiate(kidPrefab, pos, Quaternion.Euler(0, 180, 0), transform);
         kid.lane = lane;
-        kid.speed = kidSpeedCoef * CityController.Instance.CurrentSpeed();
-        kid.moveDirection = kidMoveDirection;
     }
 }
