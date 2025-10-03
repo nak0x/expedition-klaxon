@@ -14,14 +14,13 @@ public class KidsSpawner : MonoBehaviour
     public float spawnZOffset = 0f;     // ajoute un offset le long de l’axe de déplacement si besoin
 
     [Header("Kid Defaults")]
-    public float kidSpeed = 9f;
+    public float kidSpeedCoef = 9f;
     public Vector3 kidMoveDirection = Vector3.back;
 
     private void Start()
     {
         StartCoroutine(SpawnLoop());
     }
-
     private IEnumerator SpawnLoop()
     {
         while (true)
@@ -58,9 +57,9 @@ public class KidsSpawner : MonoBehaviour
         // Optionnel: décaler sur l’axe avant/arrière
         pos += kidMoveDirection.normalized * spawnZOffset;
 
-        Kid kid = Instantiate(kidPrefab, pos, Quaternion.identity, transform);
+        Kid kid = Instantiate(kidPrefab, pos, Quaternion.Euler(0, 180, 0), transform);
         kid.lane = lane;
-        kid.speed = kidSpeed;
+        kid.speed = kidSpeedCoef * CityController.Instance.CurrentSpeed();
         kid.moveDirection = kidMoveDirection;
     }
 }

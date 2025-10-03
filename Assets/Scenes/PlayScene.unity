@@ -1462,6 +1462,27 @@ PrefabInstance:
       propertyPath: anchors
       value: 
       objectReference: {fileID: 912016407}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: kidPrefab
+      value: 
+      objectReference: {fileID: 7214762763146031784, guid: 9b0cb99a13e96485da8790c80be66f9c,
+        type: 3}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: kidSpeedCoef
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: spawnIntervalMax
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: spawnIntervalMin
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3578724704279816616, guid: db9ed77942b0a406f83100268bdd12b6,
         type: 3}
       propertyPath: m_Name
