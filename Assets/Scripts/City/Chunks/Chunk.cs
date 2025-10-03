@@ -5,15 +5,16 @@ namespace City.Chunks
     public class Chunk : MonoBehaviour
     {
         [SerializeField] private Vector3 movementDirection = new Vector3(0, 0, 1);
-        [SerializeField] private float speed = 1;
-        [SerializeField] private float speedFactor = 1;
+        [SerializeField] private float baseSpeed = 5.341177f;
+        [SerializeField] private float speedFactor = 0.7f;
+        
+        [SerializeField] private float speed = 1f;
 
         private bool _hasSpawnedAChunk = false;
 
         void Start()
         {
-            this.speed = CityController.Instance.CurrentSpeed();
-            Debug.Log("Chunk getting speed from city controller : " + this.speed);
+            this.UpdateSpeedEvent(CityController.Instance.CurrentSpeed());
             CityController.Instance.OnSpeedChange += UpdateSpeedEvent;
             this.name = "Chunk" + BuildingsController.Instance.chunkCount;
             BuildingsController.Instance.chunkCount += 1;
@@ -21,7 +22,9 @@ namespace City.Chunks
 
         void UpdateSpeedEvent(float newSpeed)
         {
-            this.speed = newSpeed;
+            Debug.Log("Chunk getted speed : " + newSpeed);
+            Debug.Log("Setting chunk speed to : " + newSpeed * baseSpeed);
+            this.speed = newSpeed * baseSpeed;
         }
         
         void FixedUpdate()
@@ -30,7 +33,6 @@ namespace City.Chunks
         }
         void OnTriggerEnter(Collider other)
         {
-            Debug.Log("OnTriggerEnter chunk : " + other.gameObject.name + " " + this.name);
             if (other.CompareTag("ChunkDestroyer"))
             {
                 Destroy(this.gameObject);

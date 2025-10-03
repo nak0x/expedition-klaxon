@@ -6,21 +6,26 @@ namespace City
 {
     public class GroundShaderController : MonoBehaviour
     {
-        public Renderer targetRenderer; 
+        public Renderer targetRenderer;
+        [SerializeField] private float baseSpeed = -0.131f;
+        
         private Material mat;
 
         void Start()
         {
-            mat = targetRenderer.material;
+            CityController.Instance.OnSpeedChange += UpdateSpeed;
+            this.mat = targetRenderer.material;
+            
+            float speed = CityController.Instance.CurrentSpeed();
+            this.UpdateSpeed(speed);
         }
 
-        void Update()
+        private void UpdateSpeed(float speed)
         {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                float speed = mat.GetFloat("_SpeedAnimation");
-                mat.SetFloat("_SpeedAnimation", speed + 0.1f);
-            }
+            Debug.Log("Getted speed : " + speed);
+            Debug.Log("Setting shader speed to : " + speed * baseSpeed);
+            this.mat.SetFloat("_SpeedAnimation", speed * baseSpeed);
         }
+
     }
 }

@@ -1067,6 +1067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CityController
       objectReference: {fileID: 0}
+    - target: {fileID: 8368024294379018398, guid: 2a380522da05c448dbbdf02ce10eb2e7,
+        type: 3}
+      propertyPath: globalSpeedReducer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8659527246520888671, guid: 2a380522da05c448dbbdf02ce10eb2e7,
         type: 3}
       propertyPath: m_LocalPosition.x

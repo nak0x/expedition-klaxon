@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: ChunkTypeList
   m_EditorClassIdentifier: 
   chunkTypes:
-  - {fileID: 11400000, guid: 9639626c4fc734b75870b01b423cbfed, type: 2}
+  - {fileID: 11400000, guid: fa85e7eced53245f0afbc4ef3e1220b0, type: 2}
+  - {fileID: 11400000, guid: d8440386576fa42fd9a90592f03db279, type: 2}
+  - {fileID: 11400000, guid: a6a2c5687381d4c1e92cb3099156d50d, type: 2}

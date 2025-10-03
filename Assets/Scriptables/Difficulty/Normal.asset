@@ -16,7 +16,7 @@ MonoBehaviour:
   slug: normal
   bpmToSpeed:
     m_Mode: 1
-    m_CurveMultiplier: 10
+    m_CurveMultiplier: 1
     m_CurveMin:
       serializedVersion: 2
       m_Curve: []
