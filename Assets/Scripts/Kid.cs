@@ -10,7 +10,7 @@ public class Kid : MonoBehaviour
 {
     [Header("State")]
     public Lane lane;
-    public float speed = 3f;
+    public float speed = 8f;
     public Vector3 moveDirection = Vector3.back; // change selon ton axe
 
     public bool IsInDetectionZone { get; private set; }
@@ -30,7 +30,7 @@ public class Kid : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
         if (other.CompareTag("DetectionLine"))
         {
             IsInDetectionZone = true;

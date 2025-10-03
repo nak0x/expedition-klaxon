@@ -78,11 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b55fbc6439c46aa95d744faee49749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoCollectFromChildren: 1
-  anchors:
-  - {fileID: 1866063038466891663}
-  - {fileID: 1839613892613724622}
-  - {fileID: 339158787832939887}
+  leftAnchor: {fileID: 1866063038466891663}
+  centerAnchor: {fileID: 1839613892613724622}
+  rightAnchor: {fileID: 339158787832939887}
 --- !u!1 &3123025563643460362
 GameObject:
   m_ObjectHideFlags: 0

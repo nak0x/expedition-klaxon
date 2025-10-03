@@ -14,7 +14,7 @@ public class KidsSpawner : MonoBehaviour
     public float spawnZOffset = 0f;     // ajoute un offset le long de l’axe de déplacement si besoin
 
     [Header("Kid Defaults")]
-    public float kidSpeed = 3f;
+    public float kidSpeed = 9f;
     public Vector3 kidMoveDirection = Vector3.back;
 
     private void Start()

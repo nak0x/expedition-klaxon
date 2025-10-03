@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchors: {fileID: 0}
-  moveDuration: 0
+  moveDuration: 0.1
   moveCurve:
     serializedVersion: 2
     m_Curve:

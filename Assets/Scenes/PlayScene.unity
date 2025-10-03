@@ -1566,6 +1566,11 @@ PrefabInstance:
       objectReference: {fileID: 912016407}
     - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
         type: 3}
+      propertyPath: kidSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
       propertyPath: kidPrefab
       value: 
       objectReference: {fileID: 7203598835762888673, guid: 6d049acae17ce48e282891b40fcfc0dd,
@@ -1574,6 +1579,16 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnZOffset
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: spawnIntervalMax
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1867015012840575313, guid: db9ed77942b0a406f83100268bdd12b6,
+        type: 3}
+      propertyPath: spawnIntervalMin
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3578724704279816616, guid: db9ed77942b0a406f83100268bdd12b6,
         type: 3}
