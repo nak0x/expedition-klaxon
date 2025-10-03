@@ -10,21 +10,27 @@ public class GameController : SingletonMonoBehaviour<GameController>
     // GameStatus
     private bool _gamePaused = false;
 
+    private int _score = 0;
+    public int Score => _score;
+
     // Events
     public delegate void PlayPauseEvent();
-    
+
     public PlayPauseEvent OnPauseEvent;
     public PlayPauseEvent OnResumeEvent;
 
     public delegate void EndStartEvent();
     public EndStartEvent OnStartEvent;
     public EndStartEvent OnInitEvent;
-    
+
     public delegate void TrackEvent(string trackSlug);
     public TrackEvent SetTrackEvent;
-    
+
     public delegate void DifficultyEvent(string difficultySlug);
     public DifficultyEvent SetDifficultyEvent;
+
+    public delegate void ScoreEvent(int score);
+    public ScoreEvent SetScoreEvent;
 
     void Awake()
     {
@@ -37,7 +43,7 @@ public class GameController : SingletonMonoBehaviour<GameController>
         Track defaultTrack = TrackList.GetDefaultTrack(TrackController.Instance.trackList.tracks);
         if (defaultTrack != null)
             SetTrackEvent?.Invoke(defaultTrack.slug);
-        
+
         Difficulty defaultDifficulty = Difficulties.GetDefaultDifficulty(DifficultyController.Instance.difficultyList.difficulties);
         if (defaultDifficulty != null)
             SetDifficultyEvent?.Invoke(defaultDifficulty.slug);
@@ -51,10 +57,17 @@ public class GameController : SingletonMonoBehaviour<GameController>
 
     void TogglePause()
     {
-        if  (_gamePaused)
+        if (_gamePaused)
             OnResumeEvent?.Invoke();
         else
             OnPauseEvent?.Invoke();
         _gamePaused = !_gamePaused;
+    }
+    
+    public void AddScore(int amount)
+    {
+        _score += amount;
+        SetScoreEvent?.Invoke(_score);
+        Debug.Log($"[GameController] Score: {_score}");
     }
 }
