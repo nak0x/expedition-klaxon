@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ChunkDestroyer
   - ChunkSpawnAnchor
+  - DetectionLine
+  - KidDestroyer
   layers:
   - Default
   - TransparentFX
