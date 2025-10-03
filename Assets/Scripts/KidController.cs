@@ -54,6 +54,7 @@ public class KidController : MonoBehaviour
             {
                 Debug.Log($"[KidController] Touche lane={lane} : kid présent dans la DetectionLine ✔");
                 Destroy(kid.gameObject);
+                GameController.Instance.AddScore(1); 
                 return;
             }
         }
