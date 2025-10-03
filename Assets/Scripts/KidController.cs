@@ -45,8 +45,9 @@ public class KidController : SingletonMonoBehaviour<KidController>
         {
             if (kid.lane != lane)
                 return;
-            Destroy(kid.gameObject);
-            GameController.Instance.AddScore(1); 
+            kid.EjectAndDestroy();
+            GameController.Instance.AddScore(1);
+            return;
         }
     }
     
