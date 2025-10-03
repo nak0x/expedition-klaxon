@@ -47,7 +47,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAnchor: {fileID: 6888618176125873355}
   chunkTypeList: {fileID: 11400000, guid: 9e73b4d9a8ba84a749438d03c63d2335, type: 2}
+  chunkCount: 0
 --- !u!1 &6888618176125873355
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ GameObject:
   - component: {fileID: 6123213208648788178}
   m_Layer: 0
   m_Name: ChunkSpawnAnchor
-  m_TagString: Untagged
+  m_TagString: ChunkSpawnAnchor
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,9 +149,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 19, y: 1, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: -7.555}

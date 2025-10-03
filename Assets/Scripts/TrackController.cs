@@ -9,6 +9,7 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
 {
     [SerializeField]
     public TrackList trackList;
+    public Track currentTrack;
     
     private AudioSource _audioSource;
     
@@ -61,5 +62,6 @@ public class TrackController : SingletonMonoBehaviour<TrackController>
     private void SetTrack(Track track)
     {
         _audioSource.clip = track.trackAudio;
+        this.currentTrack = track;
     }
 }

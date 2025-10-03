@@ -16,7 +16,7 @@ MonoBehaviour:
   slug: normal
   bpmToSpeed:
     m_Mode: 1
-    m_CurveMultiplier: 0
+    m_CurveMultiplier: 10
     m_CurveMin:
       serializedVersion: 2
       m_Curve: []
@@ -28,18 +28,18 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: 0.03529412
-        outSlope: 0.03529412
+        value: 0.1
+        inSlope: 0.0035294117
+        outSlope: 0.0035294117
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 255
-        value: 10
-        inSlope: 0.03529412
-        outSlope: 0.03529412
+        value: 1
+        inSlope: 0.0035294117
+        outSlope: 0.0035294117
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334

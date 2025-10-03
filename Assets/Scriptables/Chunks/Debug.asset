@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4198aa7ceb7421490c26cb831c547f5, type: 3}
   m_Name: Debug
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 0}
-  type: 0
+  Prefab: {fileID: 4525351248450275729, guid: f8b159573806d4c10953d28ed5aceee6, type: 3}
+  type: 3

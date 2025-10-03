@@ -7,5 +7,10 @@ namespace Scriptables
     public class ChunkTypeList : ScriptableObject
     {
         public List<ChunkType> chunkTypes;
+
+        public ChunkType GetRandomChunk()
+        {
+            return chunkTypes[Random.Range(0, chunkTypes.Count)];
+        }
     }
 }

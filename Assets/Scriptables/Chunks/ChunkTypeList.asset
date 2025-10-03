@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998888e2859444919926000e9b17c94d, type: 3}
   m_Name: ChunkTypeList
   m_EditorClassIdentifier: 
-  chunkTypes: []
+  chunkTypes:
+  - {fileID: 11400000, guid: 9639626c4fc734b75870b01b423cbfed, type: 2}
